@@ -1,0 +1,16 @@
+<head>
+  <title>My Awesome Blag</title>
+</head>
+<body>
+    <form method="POST" id="create_post" action="/">
+      <label for="name_field">Name: </label><input type="text" name="creator" id="name_field"><br />
+      <label for="post_field">Post: </label><textarea form="create_post" name="content" cols="50" rows="15" id="post_field"></textarea>
+      <input type="submit">
+    </form>
+    <% @posts.all do |row| %>
+        <h1><%= row[:title] %></h1>
+        <h2>By <%= row[:creator] %></h2>
+        <p><%= row[:body] %></p>
+        <hr />
+    <% end %>
+</body>
